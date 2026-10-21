@@ -1,0 +1,2 @@
+[vbr]
+vm-test01 ansible_host=x.x.x.x ansible_user=mspadmin

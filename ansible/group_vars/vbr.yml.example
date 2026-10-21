@@ -1,0 +1,3 @@
+# Copy to vbr.yml (gitignored). Blob SAS URLs, read-only, HTTPS.
+kaseya_url: "https://YOURACCOUNT.blob.core.windows.net/agents/Kaseya.exe?sp=r&..."
+veeam_url: "https://YOURACCOUNT.blob.core.windows.net/agents/Veeam.iso?sp=r&..."

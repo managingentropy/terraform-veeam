@@ -1,0 +1,16 @@
+.terraform/
+.terraform.lock.hcl
+*.tfstate
+*.tfstate.*
+crash.log
+override.tf
+terraform.tfvars
+packer.auto.pkrvars.hcl
+packer.log
+extra-vars.json
+inventory.ini
+ansible/group_vars/vbr.yml
+ansible/.venv/
+ansible/__pycache__/
+**/.venv/
+.DS_Store

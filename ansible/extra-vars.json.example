@@ -1,0 +1,3 @@
+{
+  "ansible_password": "from-terraform-output-raw-admin_password"
+}

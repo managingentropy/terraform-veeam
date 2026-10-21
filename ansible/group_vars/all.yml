@@ -1,0 +1,10 @@
+ansible_connection: winrm
+ansible_winrm_transport: ntlm
+ansible_port: 5985
+ansible_winrm_scheme: http
+ansible_winrm_server_cert_validation: ignore
+ansible_winrm_operation_timeout_sec: 120
+ansible_winrm_read_timeout_sec: 180
+ansible_become: false
+ansible_user: mspadmin
+# password: pass -e ansible_password=...  (run.ps1 does this from terraform output)

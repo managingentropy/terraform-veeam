@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Veeam Backup & Replication silent install (bundle=Vbr).
+  From ISO: Setup\Silent\AnswerFiles\VBR\VbrAnswerFile_install.xml
+
+  Lab defaults: Community Edition, bundled PostgreSQL, LocalSystem service,
+  Azure plugin on, other plugins off. Unused empty optionals removed.
+-->
+<unattendedInstallationConfiguration bundle="Vbr" mode="install" version="1.1">
+  <properties>
+
+    <property name="ACCEPT_EULA" value="1" />
+    <property name="ACCEPT_LICENSING_POLICY" value="1" />
+    <property name="ACCEPT_THIRDPARTY_LICENSES" value="1" />
+    <property name="ACCEPT_REQUIRED_SOFTWARE" value="1" />
+
+    <property name="VBR_LICENSE_FILE" value="0" />
+    <property name="VBR_LICENSE_AUTOUPDATE" value="1" />
+    <property name="VBR_PROACTIVE_SUPPORT" value="1" />
+
+    <property name="VBR_SQLSERVER_INSTALL" value="1" />
+    <property name="VBR_SQLSERVER_ENGINE" value="1" />
+    <property name="VBR_SQLSERVER_SERVER" value="localhost:5432" />
+    <property name="VBR_SQLSERVER_DATABASE" value="VeeamBackup" />
+
+    <property name="VBR_ENTRAID_DATABASE_INSTALL" value="0" />
+
+    <property name="VBRC_SERVICE_PORT" value="9393" />
+    <property name="VBR_SERVICE_PORT" value="9392" />
+    <property name="VBR_RESTSERVICE_PORT" value="9419" />
+    <property name="VBR_REVERSE_PROXY_PORT" value="443" />
+
+    <property name="INSTALLDIR" value="C:\Program Files\Veeam" />
+    <property name="VM_CATALOGPATH" value="C:\VBRCatalog" />
+    <property name="VBR_IRCACHE" value="C:\ProgramData\Veeam\Backup\IRCache" />
+
+    <property name="VBR_CHECK_UPDATES" value="0" />
+
+    <property name="AHV_INSTALL" value="0" />
+    <property name="KVM_INSTALL" value="0" />
+    <property name="PVE_INSTALL" value="0" />
+    <property name="SCP_INSTALL" value="0" />
+    <property name="HPE_INSTALL" value="0" />
+    <property name="XEN_INSTALL" value="0" />
+    <property name="UHAPI_INSTALL" value="0" />
+    <property name="AWS_INSTALL" value="0" />
+    <property name="AZURE_INSTALL" value="1" />
+    <property name="GCP_INSTALL" value="0" />
+    <property name="KASTEN_INSTALL" value="0" />
+
+    <property name="REBOOT_IF_REQUIRED" value="0" />
+
+  </properties>
+</unattendedInstallationConfiguration>

@@ -1,0 +1,49 @@
+---
+- name: Configure VBR guest (Kaseya + Veeam)
+  hosts: vbr
+  gather_facts: false
+
+  tasks:
+    - name: Ensure C:\MSP
+      ansible.windows.win_file:
+        path: C:\MSP
+        state: directory
+
+    - name: Copy Kaseya installer script
+      ansible.windows.win_copy:
+        src: scripts/install-kaseya.ps1
+        dest: C:\MSP\install-kaseya.ps1
+
+    - name: Copy Veeam installer script
+      ansible.windows.win_copy:
+        src: scripts/install-veeam.ps1
+        dest: C:\MSP\install-veeam.ps1
+
+    - name: Copy Veeam answer file
+      ansible.windows.win_copy:
+        src: files/VbrAnswerFile_install.xml
+        dest: C:\MSP\VbrAnswerFile_install.xml
+
+    - name: Write Kaseya blob URL
+      ansible.windows.win_copy:
+        dest: C:\MSP\kaseya.url
+        content: "{{ kaseya_url }}"
+
+    - name: Write Veeam blob URL
+      ansible.windows.win_copy:
+        dest: C:\MSP\veeam.url
+        content: "{{ veeam_url }}"
+
+    - name: Install Kaseya
+      ansible.windows.win_shell: C:\MSP\install-kaseya.ps1
+      args:
+        executable: powershell
+
+    - name: Install Veeam VBR (poll process; 3h max)
+      ansible.windows.win_shell: C:\MSP\install-veeam.ps1
+      args:
+        executable: powershell
+      async: 10800
+      poll: 30
+      register: vbr_install
+      failed_when: vbr_install.rc is defined and vbr_install.rc not in [0, 3010, 3011]
