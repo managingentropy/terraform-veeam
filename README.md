@@ -1,4 +1,4 @@
-# azure win2022 lab
+# Automatic Deployment of Veeam Backup and Recovery Server to Azure, Using Packer/Terraform/Ansible
 
 Packer image → Azure Compute Gallery → Terraform VM → Ansible for Kaseya and Veeam.
 
